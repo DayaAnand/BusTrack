@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Tarun Kishore/.gradle/caches/transforms-3/154d66bd13746e0ccc6e7c9ebc34e670/transformed/mediation-test-suite-2.0.0/res/layout/gmts_list_item_detail.xml" value="0.4" />
+        <entry key="..\:/Users/Tarun Kishore/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Users/Tarun Kishore/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_main.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
