@@ -15,20 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(getSupportActionBar()!=null){
-            getSupportActionBar().hide();
-        }
-        Handler handler = new Handler();
-        Runnable r = new Runnable() {
 
-            private Context MainActivity;
-            private Context HomeActivity;
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, com.sentinels.guardian.HomeActivity.class);
-                startActivity(intent);
-            }
-        };
-        handler.postDelayed(r,3000);
     }
 }
