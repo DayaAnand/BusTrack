@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,20 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(getSupportActionBar()!=null){
-            getSupportActionBar().hide();
-        }
-        Handler handler = new Handler();
-        Runnable r = new Runnable() {
-
-            private Context MainActivity;
-            private Context HomeActivity;
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, com.sentinels.guardian.HomeActivity.class);
-                startActivity(intent);
-            }
-        };
-        handler.postDelayed(r,3000);
+        Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+        startActivity(intent);
+        finish();
+        Log.d("Is user ?", String.valueOf(FirebaseAuth.getInstance().getCurrentUser()));
+//        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+//            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
     }
 }
