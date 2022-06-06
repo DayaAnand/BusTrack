@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+        startActivity(intent);
+        finish();
         Log.d("Is user ?", String.valueOf(FirebaseAuth.getInstance().getCurrentUser()));
-        if(FirebaseAuth.getInstance().getCurrentUser()==null){
-            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+//            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
     }
 }
