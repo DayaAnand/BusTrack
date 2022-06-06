@@ -42,17 +42,17 @@ public class SignInActivity extends AppCompatActivity {
         // Set on Click Listener on Sign-in button
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                loginUserAccount();
+            public void onClick(View v){
+                Intent intent1 = new Intent(getApplicationContext(),MainHomeActivity.class);
+                startActivity(intent1);
             }
         });
 
         LgnBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(),RegistrationActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(getApplicationContext(),RegistrationActivity.class);
+                startActivity(intent2);
             }
         });
     }
