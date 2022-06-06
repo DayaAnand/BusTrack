@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153581711593",
+    "project_id": "guardian-fcce1",
+    "storage_bucket": "guardian-fcce1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153581711593:android:facee4e57e1583b77ac078",
+        "android_client_info": {
+          "package_name": "com.sentinels.guardian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153581711593-6ujbka0fc3gm7ftdivku3lt66p79cqfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzOTP21c9s-bM6cLg2lPqh5eJo-2YUz1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153581711593-6ujbka0fc3gm7ftdivku3lt66p79cqfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
