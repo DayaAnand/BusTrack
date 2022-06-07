@@ -19,6 +19,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".MainHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -30,7 +33,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

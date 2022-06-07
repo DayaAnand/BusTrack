@@ -29,7 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_reg);
 
         // taking FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
@@ -38,7 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.passwd);
         Btn = findViewById(R.id.btnregister);
-        progressbar = findViewById(R.id.progressbar);
+        //progressbar = findViewById(R.id.progressbar);
 
         // Set on Click Listener on Registration button
         Btn.setOnClickListener(new View.OnClickListener() {
