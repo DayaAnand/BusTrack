@@ -3,26 +3,16 @@ package com.sentinels.guardian;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Button;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.AuthResult;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView;
-    private Button Btn;
-    private ProgressBar progressbar;
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,24 +27,15 @@ public class RegistrationActivity extends AppCompatActivity {
         // initialising all views through id defined above
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.passwd);
-        Btn = findViewById(R.id.btnregister);
+        Button btn = findViewById(R.id.btnregister);
         //progressbar = findViewById(R.id.progressbar);
 
         // Set on Click Listener on Registration button
-        Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                registerNewUser();
-            }
-        });
+        btn.setOnClickListener(v -> registerNewUser());
     }
 
     private void registerNewUser()
     {
-
-        // show the visibility of progress bar to show loading
-        progressbar.setVisibility(View.VISIBLE);
 
         // Take the value of two edit texts in Strings
         String email, password;
@@ -80,39 +61,30 @@ public class RegistrationActivity extends AppCompatActivity {
         // create new user or register new user
         mAuth
                 .createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(),
+                                        "Registration successful!",
+                                        Toast.LENGTH_LONG)
+                                .show();
 
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
-                    {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                            "Registration successful!",
-                                            Toast.LENGTH_LONG)
-                                    .show();
+                        // hide the progress bar
 
-                            // hide the progress bar
-                            progressbar.setVisibility(View.GONE);
+                        // if the user created intent to login activity
+                        Intent intent
+                                = new Intent(RegistrationActivity.this,
+                                MainActivity.class);
+                        startActivity(intent);
+                    }
+                    else {
 
-                            // if the user created intent to login activity
-                            Intent intent
-                                    = new Intent(RegistrationActivity.this,
-                                    MainActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-
-                            // Registration failed
-                            Toast.makeText(
-                                            getApplicationContext(),
-                                            "Registration failed!!"
-                                                    + " Please try again later",
-                                            Toast.LENGTH_LONG)
-                                    .show();
-
-                            // hide the progress bar
-                            progressbar.setVisibility(View.GONE);
-                        }
+                        // Registration failed
+                        Toast.makeText(
+                                        getApplicationContext(),
+                                        "Registration failed!!"
+                                                + " Please try again later",
+                                        Toast.LENGTH_LONG)
+                                .show();
                     }
                 });
     }
