@@ -14,13 +14,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
-public class MainHomeActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -30,7 +31,7 @@ public class MainHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainhome);
+        setContentView(R.layout.activity_map);
 
         Toolbar mtoolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mtoolbar);
@@ -70,29 +71,26 @@ public class MainHomeActivity extends AppCompatActivity {
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
-                menuItem -> {
-                    return selectDrawerItem(menuItem);
-                });
+                menuItem -> selectDrawerItem(menuItem));
     }
 
     public boolean selectDrawerItem(MenuItem menuItem) {
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                Toast.makeText(getApplicationContext(),"Already in Home!",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.nav_second_fragment:
-                Intent intent1 = new Intent(getApplicationContext(),MapActivity.class);
-                startActivity(intent1);
+                Toast.makeText(getApplicationContext(),"Already in Track!",Toast.LENGTH_LONG).show();
                 return true;
             case R.id.nav_third_fragment:
-                Intent intent = new Intent(getApplicationContext(),AboutActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getApplicationContext(),AboutActivity.class);
+                startActivity(intent1);
                 return true;
             default:
 
         }
 
-        // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
         // Set action bar title
         setTitle(menuItem.getTitle());
