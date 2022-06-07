@@ -135,7 +135,9 @@ public class MainHomeActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"HELP CLICKED!!",Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.log:
-                    Toast.makeText(getApplicationContext(),"LOG OUT CLICKED!!",Toast.LENGTH_LONG).show();
+                    Intent intent2 = new Intent(getApplicationContext(),SignInActivity.class);
+                    startActivity(intent2);
+                    Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
                     return true;
                 case android.R.id.home:
                     mDrawer.openDrawer(GravityCompat.START);
