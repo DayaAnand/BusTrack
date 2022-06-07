@@ -22,6 +22,12 @@
             android:name=".MainHomeActivity"
             android:exported="false" />
         <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
