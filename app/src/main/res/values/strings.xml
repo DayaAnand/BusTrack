@@ -8,5 +8,8 @@
     <string name="or">OR</string>
     <string name="google_icon">google icon</string>
     <string name="facebook_icon">facebook icon</string>
-    <string name="new_user_register_now">New User? Register Now</string>
+    <!--to toggle the open close button
+        of the navigation drawer-->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
