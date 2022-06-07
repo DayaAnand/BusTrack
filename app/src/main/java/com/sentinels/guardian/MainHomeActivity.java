@@ -1,6 +1,7 @@
 package com.sentinels.guardian;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,12 +10,23 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainHomeActivity extends AppCompatActivity {
+
+    private DrawerLayout mDrawer;
+    private Toolbar toolbar;
+    private NavigationView nvDrawer;
+
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,87 @@ public class MainHomeActivity extends AppCompatActivity {
 
         Toolbar mtoolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mtoolbar);
+        // This will display an Up icon (<-), we will replace it with hamburger later
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Find our drawer view
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerToggle = setupDrawerToggle();
+        // Setup toggle to display hamburger icon with nice animation
+        drawerToggle.setDrawerIndicatorEnabled(true);
+        drawerToggle.syncState();
+
+        // Tie DrawerLayout events to the ActionBarToggle
+        mDrawer.addDrawerListener(drawerToggle);
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        // Setup drawer view
+        setupDrawerContent(nvDrawer);
+    }
+
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        // NOTE: Make sure you pass in a valid toolbar reference.  ActionBarDrawToggle() does not require it
+        // and will not render the hamburger icon without it.
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Pass any configuration change to the drawer toggles
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+    }
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        // Create a new fragment and specify the fragment to show based on nav item clicked
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        switch(menuItem.getItemId()) {
+            case R.id.nav_first_fragment:
+                //fragmentClass = FirstFragment.class;
+                break;
+            case R.id.nav_second_fragment:
+                //fragmentClass = SecondFragment.class;
+                break;
+            case R.id.nav_third_fragment:
+                //fragmentClass = ThirdFragment.class;
+                break;
+            default:
+                //fragmentClass = FirstFragment.class;
+        }
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+        // Set action bar title
+        setTitle(menuItem.getTitle());
+        // Close the navigation drawer
+        mDrawer.closeDrawers();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -33,16 +126,41 @@ public class MainHomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.help:
-                Toast.makeText(getApplicationContext(),"HELP CLICKED!!",Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.log:
-                Toast.makeText(getApplicationContext(),"LOG OUT CLICKED!!",Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onContextItemSelected(item);
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        else{
+            switch (item.getItemId()) {
+                case R.id.help:
+                    Toast.makeText(getApplicationContext(),"HELP CLICKED!!",Toast.LENGTH_LONG).show();
+                    return true;
+                case R.id.log:
+                    Toast.makeText(getApplicationContext(),"LOG OUT CLICKED!!",Toast.LENGTH_LONG).show();
+                    return true;
+                case android.R.id.home:
+                    mDrawer.openDrawer(GravityCompat.START);
+                    return true;
+                default:
+                    return super.onContextItemSelected(item);
+            }
         }
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.help:
+//                Toast.makeText(getApplicationContext(),"HELP CLICKED!!",Toast.LENGTH_LONG).show();
+//                return true;
+//            case R.id.log:
+//                Toast.makeText(getApplicationContext(),"LOG OUT CLICKED!!",Toast.LENGTH_LONG).show();
+//                return true;
+//            case android.R.id.home:
+//                mDrawer.openDrawer(GravityCompat.START);
+//                return true;
+//            default:
+//                return super.onContextItemSelected(item);
+//        }
+//    }
 
 }
