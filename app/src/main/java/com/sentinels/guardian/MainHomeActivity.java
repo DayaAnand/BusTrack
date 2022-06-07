@@ -3,7 +3,6 @@ package com.sentinels.guardian;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,11 +19,12 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class MainHomeActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
-    private NavigationView nvDrawer;
 
     private ActionBarDrawerToggle drawerToggle;
 
@@ -36,7 +36,7 @@ public class MainHomeActivity extends AppCompatActivity {
         Toolbar mtoolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(mtoolbar);
         // This will display an Up icon (<-), we will replace it with hamburger later
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -47,7 +47,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawer.addDrawerListener(drawerToggle);
-        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
     }
@@ -65,7 +65,7 @@ public class MainHomeActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         drawerToggle.onConfigurationChanged(newConfig);
@@ -73,12 +73,9 @@ public class MainHomeActivity extends AppCompatActivity {
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        selectDrawerItem(menuItem);
-                        return true;
-                    }
+                menuItem -> {
+                    selectDrawerItem(menuItem);
+                    return true;
                 });
     }
 
@@ -101,6 +98,7 @@ public class MainHomeActivity extends AppCompatActivity {
         }
 
         try {
+            assert false;
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,22 +145,5 @@ public class MainHomeActivity extends AppCompatActivity {
             }
         }
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.help:
-//                Toast.makeText(getApplicationContext(),"HELP CLICKED!!",Toast.LENGTH_LONG).show();
-//                return true;
-//            case R.id.log:
-//                Toast.makeText(getApplicationContext(),"LOG OUT CLICKED!!",Toast.LENGTH_LONG).show();
-//                return true;
-//            case android.R.id.home:
-//                mDrawer.openDrawer(GravityCompat.START);
-//                return true;
-//            default:
-//                return super.onContextItemSelected(item);
-//        }
-//    }
 
 }
