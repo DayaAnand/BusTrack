@@ -4,6 +4,7 @@ package com.sentinels.guardian;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Objects;
 
 public class LocationActivity extends AppCompatActivity {
@@ -38,11 +41,22 @@ public class LocationActivity extends AppCompatActivity {
     // creating a variable for
     // our Firebase Database.
     FirebaseDatabase firebaseDatabase;
+    public static ArrayList<Double> latitude ;
+    public static ArrayList<Double> longitude;
 
     // creating a variable for our
     // Database Reference for Firebase.
     DatabaseReference databaseReference;
     private TextView Latitude,Longitude;
+
+    private ArrayList<Double> getCoord(Map<String,String> vals){
+        ArrayList<Double> temp  =  new ArrayList<>();
+        for(Map.Entry<String, String> entry:vals.entrySet()){
+            String s = entry.getValue();
+            temp.add(Double.valueOf(s));
+        }
+        return temp;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +79,10 @@ public class LocationActivity extends AppCompatActivity {
         lat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String lati =  dataSnapshot.child("-N42s1ODPer-VrlgFeoJ").getValue(String.class);
+                latitude = getCoord((Map<String,String>)dataSnapshot.getValue());
+                Log.d("Latitude",latitude.toString());
+
+                String lati =  String.valueOf(latitude.get(latitude.size()-1));
                 Latitude.setText(lati);
             }
 
@@ -80,7 +97,9 @@ public class LocationActivity extends AppCompatActivity {
         lon.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String longi =  dataSnapshot.child("-N42s0W359sMdtI-IRkw").getValue(String.class);
+                longitude = getCoord((Map<String,String>)dataSnapshot.getValue());
+                Log.d("Longitude",longitude.toString());
+                String longi =  String.valueOf(longitude.get(longitude.size()-1));
 
 
                 Longitude.setText(longi);
