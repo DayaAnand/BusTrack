@@ -92,7 +92,6 @@ public class AboutActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Already in About Us!",Toast.LENGTH_LONG).show();
                 return true;
             default:
-
         }
 
         menuItem.setChecked(true);
