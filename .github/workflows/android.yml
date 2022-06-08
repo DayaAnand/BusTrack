@@ -20,7 +20,7 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     
-    - name: Access APOD_API_KEY
+    - name: Access MAPS_API_KEY
       env:
         MAPS_API_KEY: ${{secrets.MAPS_API_KEY}}
       run: echo APOD_API_KEY=\"$MAPS_API_KEY\" > ./local.properties
