@@ -86,6 +86,9 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent1);
                 return true;
             case R.id.nav_third_fragment:
+                Intent intent2 = new Intent(getApplicationContext(),LocationActivity.class);
+                startActivity(intent2);
+            case R.id.nav_fourth_fragment:
                 Toast.makeText(getApplicationContext(),"Already in About Us!",Toast.LENGTH_LONG).show();
                 return true;
             default:

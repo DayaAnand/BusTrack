@@ -32,7 +32,12 @@ public class SignInActivity extends AppCompatActivity {
         Button lgnBtn = (Button) findViewById(R.id.button2);
         // Set on Click Listener on Sign-in button
 
-        btn.setOnClickListener(v -> loginUserAccount());
+//      btn.setOnClickListener(v -> loginUserAccount());
+
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
+            startActivity(intent);
+        });
 
         lgnBtn.setOnClickListener(v -> {
             Intent intent2 = new Intent(getApplicationContext(),RegistrationActivity.class);

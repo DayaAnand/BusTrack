@@ -84,8 +84,12 @@ public class MapActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Already in Track!",Toast.LENGTH_LONG).show();
                 return true;
             case R.id.nav_third_fragment:
-                Intent intent1 = new Intent(getApplicationContext(),AboutActivity.class);
+                Intent intent1 = new Intent(getApplicationContext(),LocationActivity.class);
                 startActivity(intent1);
+                return true;
+            case R.id.nav_fourth_fragment:
+                Intent intent2 = new Intent(getApplicationContext(),AboutActivity.class);
+                startActivity(intent2);
                 return true;
             default:
 
