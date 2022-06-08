@@ -101,7 +101,6 @@ public class LocationActivity extends AppCompatActivity {
                 Log.d("Longitude",longitude.toString());
                 String longi =  String.valueOf(longitude.get(longitude.size()-1));
 
-
                 Longitude.setText(longi);
             }
 
