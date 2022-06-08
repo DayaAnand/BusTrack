@@ -72,7 +72,7 @@ public class MyService extends Service {
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this,CHANNEL_ID)
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
+                        .setSmallIcon(R.drawable.our_logo)
                         .setContentTitle("Alert")
                         .setContentText("Child out of range");
 
