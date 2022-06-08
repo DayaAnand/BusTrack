@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
+        Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
         startActivity(intent);
     }
 

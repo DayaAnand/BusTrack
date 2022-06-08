@@ -65,7 +65,7 @@ public class LocationActivity extends AppCompatActivity {
         lat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String lati =  dataSnapshot.child("-N4236x-IG6_gpJQ7_Lc").getValue(String.class);
+                String lati =  dataSnapshot.child("-N42s1ODPer-VrlgFeoJ").getValue(String.class);
                 Latitude.setText(lati);
             }
 
@@ -80,7 +80,9 @@ public class LocationActivity extends AppCompatActivity {
         lon.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String longi =  dataSnapshot.child("-N4238UEllM4amf6N_mP").getValue(String.class);
+                String longi =  dataSnapshot.child("-N42s0W359sMdtI-IRkw").getValue(String.class);
+
+
                 Longitude.setText(longi);
             }
 
