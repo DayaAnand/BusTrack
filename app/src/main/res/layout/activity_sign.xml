@@ -125,6 +125,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
@@ -144,15 +154,6 @@
 <!--            android:layout_weight="1"-->
 <!--            android:contentDescription="@string/google_icon"-->
 <!--            app:srcCompat="@drawable/google" />-->
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
 
     </LinearLayout>
 

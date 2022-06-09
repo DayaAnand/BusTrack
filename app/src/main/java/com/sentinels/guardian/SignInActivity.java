@@ -64,12 +64,12 @@ public class SignInActivity extends AppCompatActivity {
         // Configure Google Client
         configureGoogleClient();
 
-//      btn.setOnClickListener(v -> loginUserAccount());
+      btn.setOnClickListener(v -> loginUserAccount());
 
-        btn.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
-            startActivity(intent);
-        });
+//        btn.setOnClickListener(v -> {
+//            Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
+//            startActivity(intent);
+//        });
 
         lgnBtn.setOnClickListener(v -> {
             Intent intent2 = new Intent(getApplicationContext(),RegistrationActivity.class);
@@ -99,10 +99,10 @@ public class SignInActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser != null) {
-            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
-            showToastMessage("Currently Logged in: " + currentUser.getEmail());
-        }
+//        if (currentUser != null) {
+//            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
+//            showToastMessage("Currently Logged in: " + currentUser.getEmail());
+//        }
     }
     public void signInToGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();

@@ -21,7 +21,7 @@
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_map.xml" value="0.2" />
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_reg.xml" value="0.1" />
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_registration.xml" value="0.264" />
-        <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_sign.xml" value="0.16" />
+        <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_sign.xml" value="0.1" />
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/layout/nav_header.xml" value="0.5896147403685092" />
         <entry key="..\:/Users/Eniyan/AndroidStudioProjects/Guardian/app/src/main/res/menu/drawer_view.xml" value="0.1" />
@@ -38,18 +38,6 @@
         <entry key="..\:/Users/Tarun Kishore/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Tarun Kishore/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/Tarun Kishore/AndroidStudioProjects/Guardian/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_about.xml" value="0.4" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_listview.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_location.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_mainhome.xml" value="0.2" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_map.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_reg.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_registration.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_sign.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/dayaa/AndroidStudioProjects/Guardianfinal/app/src/main/res/layout/activity_sign_in.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
