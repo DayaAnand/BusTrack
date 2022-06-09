@@ -14,22 +14,27 @@
     <!-- Button for Login with text "Login" -->
 
     <!-- ProgressBar for Loading Time -->
+
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="163dp"
+        android:layout_height="46dp"
         android:layout_marginTop="190dp"
         android:layout_marginBottom="82dp"
         android:text="Login"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="269dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="60dp"
         android:hint="Enter your Email"
         android:minHeight="48dp"
@@ -40,8 +45,8 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="271dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="54dp"
         android:hint="Enter your Password"
         android:inputType="textPassword"
@@ -53,8 +58,8 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_width="352dp"
-        android:layout_height="59dp"
+        android:layout_width="184dp"
+        android:layout_height="48dp"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="189dp"
@@ -67,13 +72,15 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="53dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="236dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/login"
+        app:layout_constraintStart_toStartOf="@+id/password" />
 
     <Button
         android:id="@+id/button2"
