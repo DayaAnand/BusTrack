@@ -64,12 +64,12 @@ public class SignInActivity extends AppCompatActivity {
         // Configure Google Client
         configureGoogleClient();
 
-      btn.setOnClickListener(v -> loginUserAccount());
+//      btn.setOnClickListener(v -> loginUserAccount());
 
-//        btn.setOnClickListener(v -> {
-//            Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
-//            startActivity(intent);
-//        });
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(),MainHomeActivity.class);
+            startActivity(intent);
+        });
 
         lgnBtn.setOnClickListener(v -> {
             Intent intent2 = new Intent(getApplicationContext(),RegistrationActivity.class);
@@ -99,10 +99,10 @@ public class SignInActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser != null) {
-            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
-            showToastMessage("Currently Logged in: " + currentUser.getEmail());
-        }
+//        if (currentUser != null) {
+//            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
+//            showToastMessage("Currently Logged in: " + currentUser.getEmail());
+//        }
     }
     public void signInToGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
@@ -162,16 +162,16 @@ public class SignInActivity extends AppCompatActivity {
         // validations for input email and password
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(),
-                            "Please enter email!!",
-                            Toast.LENGTH_LONG)
+                    "Please enter email!!",
+                    Toast.LENGTH_LONG)
                     .show();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getApplicationContext(),
-                            "Please enter password!!",
-                            Toast.LENGTH_LONG)
+                    "Please enter password!!",
+                    Toast.LENGTH_LONG)
                     .show();
             return;
         }
@@ -182,8 +182,8 @@ public class SignInActivity extends AppCompatActivity {
                         task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(),
-                                                "Login successful!!",
-                                                Toast.LENGTH_LONG)
+                                        "Login successful!!",
+                                        Toast.LENGTH_LONG)
                                         .show();
 
 
@@ -197,8 +197,8 @@ public class SignInActivity extends AppCompatActivity {
 
                                 // sign-in failed
                                 Toast.makeText(getApplicationContext(),
-                                                "Login failed!!",
-                                                Toast.LENGTH_LONG)
+                                        "Login failed!!",
+                                        Toast.LENGTH_LONG)
                                         .show();
 
                             }
