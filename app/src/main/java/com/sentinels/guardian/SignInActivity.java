@@ -99,10 +99,10 @@ public class SignInActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-//        if (currentUser != null) {
-//            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
-//            showToastMessage("Currently Logged in: " + currentUser.getEmail());
-//        }
+        if (currentUser != null) {
+            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
+            showToastMessage("Currently Logged in: " + currentUser.getEmail());
+        }
     }
     public void signInToGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
