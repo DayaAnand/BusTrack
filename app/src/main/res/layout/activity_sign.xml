@@ -137,13 +137,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
-        <ImageView
-            android:id="@+id/googleLogin"
+<!--        <ImageView-->
+<!--            android:id="@+id/googleLogin"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:contentDescription="@string/google_icon"-->
+<!--            app:srcCompat="@drawable/google" />-->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/google_icon"
-            app:srcCompat="@drawable/google" />
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
     </LinearLayout>
 
